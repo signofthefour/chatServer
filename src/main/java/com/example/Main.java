@@ -18,6 +18,7 @@ package com.example;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import com.example.server.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -33,6 +34,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
+import java.net.*;
+import java.io.*;
 
 @Controller
 @SpringBootApplication
@@ -46,6 +49,16 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
+    int port = 8818;
+		try {
+			ServerSocket chatServerSocket = new ServerSocket(port);
+			
+			ChatServer chatServer = new ChatServer(chatServerSocket);
+			chatServer.start();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
   }
 
   @RequestMapping("/")
