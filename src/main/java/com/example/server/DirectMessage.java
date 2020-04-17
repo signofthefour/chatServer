@@ -16,7 +16,6 @@ public class DirectMessage implements Runnable {
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
 		while (true) {
 			if (chatServer.chatQueue.hasNext()) {
 				message = chatServer.chatQueue.getNext();
