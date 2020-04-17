@@ -49,7 +49,7 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
-    int port = 8818;
+    int port = 5000;
 		try {
 			ServerSocket chatServerSocket = new ServerSocket(port);
 			
